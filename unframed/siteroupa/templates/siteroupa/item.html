@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'siteroupa/main.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    .imagem-pequena {
+        width: 450px; /* Defina a largura desejada */
+        height: 450px; /* Mantém a proporção da imagem */
+        margin-left: 150px;
+        display: block;
+        float: left; /* Move the image to the left */
+    }
+
+    .name {
+        color: black;
+        font-style: italic;
+        font-family: "Bradley Hand";
+        font-size: 40px;
+        float: right; /* Move the name to the right */
+        margin-left: 50px;
+    }
+
+    .price {
+        color: red;
+        font-style: italic;
+        float: right; /* Move the price to the right */
+    }
+
+</style>
+<body>
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-md-4" style="display: flex;">
+        <div class="object">
+            <img src="{{ item.main_image.url }}" class="imagem-pequena" />
+            <div style="display: flex; align-items: center;">
+                <p class="name">{{ item.name }}</p>
+                <p class="price" style="margin-left: 10px;">{{ item.price }}€</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endblock %}

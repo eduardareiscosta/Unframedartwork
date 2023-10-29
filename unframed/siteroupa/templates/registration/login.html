@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% extends 'siteroupa/main.html' %}
+
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+
+<style>
+
+.titulologin {
+            color: #c79885;
+            font-family: "Bradley Hand";
+            text-decoration: none;
+            font-size: 45px; /* Tamanho da fonte desejado */
+            position: absolute; /* Define a posição absoluta */
+            top: 180px; /* Define a distância a partir do topo */
+            left: 350px; /* Define a distância a partir da direita */
+            }
+
+.custom-form {
+            width: 200px; /* Largura desejada */
+            height: 200px; /* Altura desejada */
+            }
+.custom-button {
+            font-family: "Bradley Hand"
+            float: right; /* Alinhar à direita */
+            background-color: #c79885; /* Cor de fundo cinza */
+            color: white; /* Cor do texto branco */
+            padding: 15px 40px; /* Espaçamento interno (10px no topo/baixo, 20px nas laterais) */
+            font-size: 25px; /* Tamanho da fonte desejado */
+            border: none; /* Remover a borda padrão */
+            border-radius: 10px; /* Borda arredondada */
+            text-decoration: none; /* Remover sublinhado do link */
+            cursor: pointer; /* Mudar o cursor ao passar o mouse */
+            transition: background-color 0.3s; /* Efeito de transição de cor de fundo */
+            position: absolute; /* Define a posição absoluta */
+            top: 230px; /* Define a distância a partir do topo */
+            right: 350px; /* Define a distância a partir da direita */
+            }
+
+.custom-button:hover {
+            background-color: darkgray; /* Cor de fundo mais escura ao passar o mouse */
+            }
+
+.custom-button {
+            font-family:"Bradley Hand"
+            }
+
+
+  /* Estilos para o formulário */
+form {
+            background-color: #f0f0f0; /* Cor de fundo cinza */
+            padding: 40px; /* Espaçamento interno */
+            border: 1px solid #ccc; /* Borda com cor cinza */
+            border-radius: 15px; /* Borda arredondada */
+            font-size: 20px;
+        }
+
+  /* Posicionamento absoluto do formulário */
+form {
+            position: absolute;
+            top: 380px; /* Alinha o topo do formulário ao centro vertical */
+            left: 430px; /* Alinha o lado esquerdo do formulário ao centro horizontal */
+            transform: translate(-50%, -50%); /* Move o formulário para o centro absoluto */
+        }
+
+.signup {
+            float: right; /* Alinhar à direita */
+            color: #474959; /* Cor do texto branco */
+            font-size: 22px; /* Tamanho da fonte desejado */
+            text-decoration: none; /* Remover sublinhado do link */
+            position: absolute; /* Define a posição absoluta */
+            top: 330px; /* Define a distância a partir do topo */
+            right: 280px; /* Define a distância a partir da direita */
+            font-family: "Bradley Hand";
+        }
+
+
+</style>
+<body>
+<br>
+<br>
+<div class="logotipo">
+    <a href="/">
+        <img src="{% static 'siteroupa/images/logo.png' %}" class="rounded float-left" alt="LOGO" width="9%",
+         height="10%" vspace="20" hspace="583">
+    </a>
+</div>
+<br>
+<br>
+<a class="titulologin"> LOGIN </a>
+<div class="container">
+<div class="custom-form">
+    <br>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>
+<a class="nav-item nav-link custom-button" href="{% url 'siteroupa:signup' %}">Sign up</a>
+
+<a class="signup"> Ainda não tens conta? <br> Regista-te aqui!! </a>
+
+</body>
+</html>
+
+{% endblock %}

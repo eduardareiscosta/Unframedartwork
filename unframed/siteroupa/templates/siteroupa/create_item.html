@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ item_form.as_p }}
+    <label for="id_images">Upload Images:</label>
+    <input type="file" name="images" id="id_images" multiple>
+    <button type="submit">Create Item</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'siteroupa/main.html' %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Signup</button>
+</form>
+</body>
+</html>
+
+{% endblock %}

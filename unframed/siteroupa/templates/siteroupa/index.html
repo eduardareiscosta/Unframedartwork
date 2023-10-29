@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% extends 'siteroupa/main.html' %}
+
+{% block content %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unframed</title>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Adicionando jQuery -->
+    <script>
+        $(document).ready(function(){
+            $(".elementos p").each(function(index) {
+                if(index % 2 === 0) {
+                    $(this).addClass("par");
+                } else {
+                    $(this).addClass("impar");
+                }
+            });
+        });
+    </script>
+</head>
+
+    <style>
+        html, body {
+             max-width: 100%;
+             overflow-x: hidden;
+        }
+
+        body {
+            background-color: #c79885;
+            position: relative;
+        }
+
+        .image-container {
+            display: flex; /* Use flexbox para alinhar as imagens lado a lado */
+            justify-content: center;
+            font-size: 0;
+            margin-bottom: -100px;
+        }
+        .image-container a {
+            flex: 1; /* Distribua o espaço igualmente entre as imagens */
+            text-align: center;
+        }
+        .image-container img {
+            width: 90%; /* Ajuste a largura das imagens (aumente conforme necessário) */
+            height: 80%; /* Mantenha a proporção da imagem */
+        }
+
+        .titulo2 {
+            color: white;
+            font-family: "Bradley Hand";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-decoration: none;
+            font-size: 25px;
+            letter-spacing: 3px; /* Espaçamento entre as letras */
+             }
+
+
+        .button-container {
+            text-align: center; /* Centraliza o conteúdo */
+        }
+
+.shop-now-button {
+    font-family: "Arial", sans-serif;
+    background-color: black;
+    color: white;
+    padding: 10px 23px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; /* Torna o botão um elemento de bloco */
+    max-width: 500px; /
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+
+}
+
+.button-container {
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+.shop-now-button {
+            font-family:"Bradley Hand"
+            }
+
+    </style>
+
+<body>
+<br>
+<br>
+ <div class="logotipo">
+    <a href="/">
+        <img src="{% static 'siteroupa/images/logo.png' %}" class="rounded float-left" alt="LOGO" width="10%",
+         height="10%" vspace="25" hspace="570">
+    </a>
+</div>
+<div class="image-container">
+    <a href="/">
+        <img src="{% static 'siteroupa/images/inicial1.jpg' %}" class="rounded float-left" alt="LOGO" width="50%">
+    </a>
+    <a href="/">
+        <img src="{% static 'siteroupa/images/videocerto.gif' %}" class="rounded float-left" alt="LOGO" width="50%">
+    </a>
+</div>
+<a class="titulo2"> Unframed Artwork - Limited Series Artworks and Printed Garments - Enjoy being Unique </a>
+<br>
+<div class="button-container">
+    <a class="nav-item nav-link shop-now-button" href="{% url 'siteroupa:store' 1 %}">Shop Now</a>
+</div>
+<br>
+<br>
+<footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn text-white btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white" href="https://Unframed.com/">Unframed.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'siteroupa/main.html' %}
+
+{% block content %}
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>store</title>
+</head>
+<style>
+    html, body {
+             max-width: 100%;
+             overflow-x: hidden;
+        }
+    .imagem-pequena {
+            width: 350px; /* Defina a largura desejada */
+            height: 350px; /* Mantém a proporção da imagem */
+            margin: 0 auto;
+            display: block;
+            }
+
+
+    .row {
+            text-align: center; /* Centraliza o conteúdo */
+           }
+
+    .name {
+        color: black;
+        font-style: italic;
+        font-family: "Bradley Hand";
+        font-size: 20px;
+    }
+
+     .price {
+        color: red;
+        font-style: italic;
+    }
+
+</style>
+
+<body>
+<br>
+<br>
+<div class="logotipo">
+    <a href="/">
+        <img src="{% static 'siteroupa/images/logo.png' %}" class="rounded float-left" alt="LOGO" width="9%",
+         height="10%" vspace="25" hspace="580">
+    </a>
+</div>
+<div class="row">
+    {% for item in items %}
+        <div class="col-md-4 text-center">
+            <div class="object text-center" href="">
+             <!-- Adicionando a classe text-center -->
+                <a href="{% url 'siteroupa:item' item.id %}"> <img src="{{ item.main_image.url }}" alt="clothes" class="imagem-pequena"/></a>
+                <br>
+                <div class="text-container">
+                    <p class="name">{{ item.name }}</p>
+                    <p class="price">{{ item.price }}€</p>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+</div>
+<br>
+<br>
+<div class="row">
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

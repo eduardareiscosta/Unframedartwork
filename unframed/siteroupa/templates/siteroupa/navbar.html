@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% load custom_tags %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="caminho-para-bootstrap/css/bootstrap.min.css">
+<script src="caminho-para-bootstrap/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<style>
+  .welcome {
+            color: grey;
+            font-family: "Optima", sans-serif;
+            text-decoration: none;
+            font-size: 20px;
+           }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'siteroupa:index' %}">Home <span class="sr-only"></span></a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" type="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Shop
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{% url 'siteroupa:store' 1 %}">T-shirts</a>
+          <a class="dropdown-item" href="{% url 'siteroupa:mulher' %}">Accessories</a>
+        </div>
+      </div>
+      {% if request.user.is_authenticated %}
+      <a class="nav-item nav-link" href="{% url 'siteroupa:logout' %}">Logout</a>
+      {% else %}
+      <a class="nav-item nav-link" href="{% url 'siteroupa:login' %}">Login</a>
+      {% endif %}
+      <a class="nav-item nav-link" href="#">Carrinho</a>
+    </div>
+  </div>
+  {% if request.user.is_authenticated %}
+  <a class="welcome"> Welcome {{ request.user.username }} &nbsp;&nbsp; </a>
+  {% endif %}
+  <form2 class="form-inline mx-auto">
+    <div class="input-group text-center">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <div class="input-group-append">
+        <button class="btn btn-outline-success mr-1" type="submit">Search</button>
+      </div>
+    </div>
+  </form2>
+</nav>
+
+
